@@ -1,0 +1,37 @@
+name: Build Unity Package
+
+on:
+  push:
+    tags:
+      - '**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Build and verify Unity package
+        run: python scripts/build_unitypackage.py
+
+      - name: Upload Unity package
+        uses: actions/upload-artifact@v7
+        with:
+          name: SteamCapsuleCapture-${{ github.run_number }}
+          path: dist/SteamCapsuleCapture.unitypackage
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
