@@ -17,7 +17,6 @@ PNG는 Unity 프로젝트 최상단의 **Screenshots** 폴더에 저장됩니다
 - **한국어 / English**: 토글을 켜면 영어 UI로 바뀝니다. 실행 메뉴는 항상 `SteamTool > Steam Capsule Capture`입니다.
 - **선택 영역 초기화**: 현재 이미지 비율에 맞춰 영역을 초기화합니다. 다른 이미지 종류를 선택해도 영역이 초기화됩니다.
 - **Game 뷰 가이드 표시**: 게임을 마우스로 조작하려면 끄세요. 켜져 있으면 사각형 내부의 마우스 입력은 영역 이동에 사용됩니다.
-- **Undo/Redo**: 이미지 종류 선택과 영역 변경을 되돌리거나 다시 적용합니다.
 
 게임 UI와 배경은 저장되며, 빨간 가이드와 에디터 UI는 저장되지 않습니다. Gizmos가 보이면 캡처 전에 끄세요. 선택 영역이 출력보다 작다는 안내가 나오면 Game 뷰 렌더 해상도를 높여 더 선명하게 저장할 수 있습니다. 가이드가 화면 밖으로 잘리면 Game 뷰의 **Scale**을 낮추세요.
 
@@ -40,7 +39,6 @@ PNGs are saved in the **Screenshots** folder at the root of your Unity project. 
 - **한국어 / English**: Enable this toggle to switch to English UI. The menu path is always `SteamTool > Steam Capsule Capture`.
 - **Reset crop**: Reset the selection to the current image aspect ratio. Selecting another image type also resets the crop.
 - **Show Game view guide**: Disable this to interact with the game using the mouse. When enabled, mouse input inside the rectangle moves the crop.
-- **Undo/Redo**: Undo or redo image type selections and crop changes.
 
 The capture includes the in-game UI and background, but excludes the red guide and editor UI. Turn off Gizmos before capturing if they are visible. If the tool warns that the crop will be upscaled, increase the Game view render resolution for sharper output. Reduce Game view **Scale** if the guide is clipped by the window.
 
