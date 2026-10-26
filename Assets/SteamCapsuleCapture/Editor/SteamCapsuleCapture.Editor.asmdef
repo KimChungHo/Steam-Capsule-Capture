@@ -1,0 +1,7 @@
+{
+  "name": "SteamCapsuleCapture.Editor",
+  "rootNamespace": "SteamCapsuleCapture.Editor",
+  "references": [],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": false
+}
