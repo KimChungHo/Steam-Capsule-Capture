@@ -23,7 +23,7 @@ namespace SteamCapsuleCapture.Editor
         internal CapsuleCaptureModel Model => model;
 
         // MenuItem은 컴파일 상수만 지원합니다. 문자열 테이블의 menu 한국어 값과 일치시킵니다.
-        [MenuItem("도구/Steam Capsule Capture")]
+        [MenuItem("SteamTool/Steam Capsule Capture")]
         public static void Open() => GetWindow<CapsuleCaptureWindow>();
 
         private void OnEnable()
