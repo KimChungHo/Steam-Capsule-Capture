@@ -13,6 +13,8 @@ jobs:
   package:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
       - name: Check out source
         uses: actions/checkout@v7
@@ -34,3 +36,21 @@ jobs:
           archive: false
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish package to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/') && github.event.deleted != true
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG_NAME: ${{ github.ref_name }}
+          PACKAGE_PATH: dist/SteamCapsuleCapture.unitypackage
+        run: |
+          if gh release view "$TAG_NAME" > /dev/null 2>&1; then
+            gh release upload "$TAG_NAME" "$PACKAGE_PATH" --clobber
+          else
+            gh release create "$TAG_NAME" "$PACKAGE_PATH" \
+              --verify-tag \
+              --title "$TAG_NAME" \
+              --notes "Download SteamCapsuleCapture.unitypackage below and import it into Unity."
+          fi
