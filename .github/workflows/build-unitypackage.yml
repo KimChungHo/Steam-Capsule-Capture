@@ -30,8 +30,7 @@ jobs:
       - name: Upload Unity package
         uses: actions/upload-artifact@v7
         with:
-          name: SteamCapsuleCapture-${{ github.run_number }}
           path: dist/SteamCapsuleCapture.unitypackage
+          archive: false
           if-no-files-found: error
-          compression-level: 0
           retention-days: 30
